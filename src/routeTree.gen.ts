@@ -12,7 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppVaultsRouteImport } from './routes/app.vaults'
 import { Route as AppTreasuryRouteImport } from './routes/app.treasury'
+import { Route as AppTransactionsRouteImport } from './routes/app.transactions'
+import { Route as AppTeamRouteImport } from './routes/app.team'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppSecurityRouteImport } from './routes/app.security'
+import { Route as AppChainsRouteImport } from './routes/app.chains'
+import { Route as AppAgentsRouteImport } from './routes/app.agents'
 
 const AppRoute = AppRouteImport.update({
   id: '/app',
@@ -29,36 +36,125 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppVaultsRoute = AppVaultsRouteImport.update({
+  id: '/vaults',
+  path: '/vaults',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppTreasuryRoute = AppTreasuryRouteImport.update({
   id: '/treasury',
   path: '/treasury',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTransactionsRoute = AppTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeamRoute = AppTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSecurityRoute = AppSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChainsRoute = AppChainsRouteImport.update({
+  id: '/chains',
+  path: '/chains',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAgentsRoute = AppAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
   getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/app/agents': typeof AppAgentsRoute
+  '/app/chains': typeof AppChainsRoute
+  '/app/security': typeof AppSecurityRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/team': typeof AppTeamRoute
+  '/app/transactions': typeof AppTransactionsRoute
   '/app/treasury': typeof AppTreasuryRoute
+  '/app/vaults': typeof AppVaultsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app/agents': typeof AppAgentsRoute
+  '/app/chains': typeof AppChainsRoute
+  '/app/security': typeof AppSecurityRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/team': typeof AppTeamRoute
+  '/app/transactions': typeof AppTransactionsRoute
   '/app/treasury': typeof AppTreasuryRoute
+  '/app/vaults': typeof AppVaultsRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/app/agents': typeof AppAgentsRoute
+  '/app/chains': typeof AppChainsRoute
+  '/app/security': typeof AppSecurityRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/team': typeof AppTeamRoute
+  '/app/transactions': typeof AppTransactionsRoute
   '/app/treasury': typeof AppTreasuryRoute
+  '/app/vaults': typeof AppVaultsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/app/treasury' | '/app/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/agents'
+    | '/app/chains'
+    | '/app/security'
+    | '/app/settings'
+    | '/app/team'
+    | '/app/transactions'
+    | '/app/treasury'
+    | '/app/vaults'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app/treasury' | '/app'
-  id: '__root__' | '/' | '/app' | '/app/treasury' | '/app/'
+  to:
+    | '/'
+    | '/app/agents'
+    | '/app/chains'
+    | '/app/security'
+    | '/app/settings'
+    | '/app/team'
+    | '/app/transactions'
+    | '/app/treasury'
+    | '/app/vaults'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/agents'
+    | '/app/chains'
+    | '/app/security'
+    | '/app/settings'
+    | '/app/team'
+    | '/app/transactions'
+    | '/app/treasury'
+    | '/app/vaults'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -89,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/vaults': {
+      id: '/app/vaults'
+      path: '/vaults'
+      fullPath: '/app/vaults'
+      preLoaderRoute: typeof AppVaultsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/treasury': {
       id: '/app/treasury'
       path: '/treasury'
@@ -96,16 +199,72 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTreasuryRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/transactions': {
+      id: '/app/transactions'
+      path: '/transactions'
+      fullPath: '/app/transactions'
+      preLoaderRoute: typeof AppTransactionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/team': {
+      id: '/app/team'
+      path: '/team'
+      fullPath: '/app/team'
+      preLoaderRoute: typeof AppTeamRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/security': {
+      id: '/app/security'
+      path: '/security'
+      fullPath: '/app/security'
+      preLoaderRoute: typeof AppSecurityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/chains': {
+      id: '/app/chains'
+      path: '/chains'
+      fullPath: '/app/chains'
+      preLoaderRoute: typeof AppChainsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/agents': {
+      id: '/app/agents'
+      path: '/agents'
+      fullPath: '/app/agents'
+      preLoaderRoute: typeof AppAgentsRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppAgentsRoute: typeof AppAgentsRoute
+  AppChainsRoute: typeof AppChainsRoute
+  AppSecurityRoute: typeof AppSecurityRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppTeamRoute: typeof AppTeamRoute
+  AppTransactionsRoute: typeof AppTransactionsRoute
   AppTreasuryRoute: typeof AppTreasuryRoute
+  AppVaultsRoute: typeof AppVaultsRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAgentsRoute: AppAgentsRoute,
+  AppChainsRoute: AppChainsRoute,
+  AppSecurityRoute: AppSecurityRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppTeamRoute: AppTeamRoute,
+  AppTransactionsRoute: AppTransactionsRoute,
   AppTreasuryRoute: AppTreasuryRoute,
+  AppVaultsRoute: AppVaultsRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
