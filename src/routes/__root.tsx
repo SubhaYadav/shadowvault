@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ShadowVault — Private Cross-Chain Treasury Infrastructure" },
       { name: "description", content: "Institutional-grade private cross-chain treasury platform on Solana — programmable custody with Ika and confidential analytics with Encrypt." },
       { name: "author", content: "ShadowVault" },
-      { property: "og:title", content: "ShadowVault — Private Cross-Chain Treasury" },
-      { property: "og:description", content: "Manage assets across chains with institutional security, encrypted finance, and AI guardrails." },
+      { property: "og:title", content: "ShadowVault — Private Cross-Chain Treasury Infrastructure" },
+      { property: "og:description", content: "Institutional-grade private cross-chain treasury platform on Solana — programmable custody with Ika and confidential analytics with Encrypt." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@ShadowVault" },
+      { name: "twitter:title", content: "ShadowVault — Private Cross-Chain Treasury Infrastructure" },
+      { name: "twitter:description", content: "Institutional-grade private cross-chain treasury platform on Solana — programmable custody with Ika and confidential analytics with Encrypt." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bcc36dd0-4594-41e7-bfec-d1f8b11094c9" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bcc36dd0-4594-41e7-bfec-d1f8b11094c9" },
     ],
     links: [
       {
